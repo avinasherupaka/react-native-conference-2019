@@ -1,0 +1,31 @@
+install! 'cocoapods', deterministic_uuids: false
+project 'ChainReactConf.xcodeworkspace'
+
+target 'ChainReactConf' do
+  platform :ios, '10.0'
+
+  pod 'AppCenter/Analytics', '~> 1.14.0'
+  pod 'AppCenter/Crashes', '~> 1.14.0'
+  pod 'AppCenter/Push', '~> 1.14.0'
+  pod 'AppCenterReactNativeShared', '~> 1.13.0'
+  pod 'DoubleConversion', podspec: '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'Folly', podspec: '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+  pod 'glog', podspec: '../node_modules/react-native/third-party-podspecs/glog.podspec'
+  pod 'yoga', path: '../node_modules/react-native/ReactCommon/yoga'
+  pod 'React', path: '../node_modules/react-native', subspecs: [
+    'RCTLinkingIOS' # If linking to custom Swift or Obj-C files
+  ]
+  pod 'RNCAsyncStorage', path: '../node_modules/@react-native-community/async-storage'
+  pod 'RNGestureHandler', path: '../node_modules/react-native-gesture-handler'
+  pod 'RNScreens', path: '../node_modules/react-native-screens'
+
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      if target.name == "React"
+        target.remove_from_project
+      end
+    end
+  end
+end

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkoutItem renders in special color if the set is your max set 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+-                     "color": "#a6ed8e",
++                     "color": "#ffffff",
+@@ --- --- @@
+-                     "color": "#a6ed8e",
++                     "color": "#ffffff",
+@@ --- --- @@
+-                     "color": "#a6ed8e",
++                     "color": "#ffffff",
+`;
+
+exports[`WorkoutItem renders using kg vs lb 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+-             100 kgs
++             220.46 lb
+@@ --- --- @@
+-             105 kgs
++             231.49 lb
+`;

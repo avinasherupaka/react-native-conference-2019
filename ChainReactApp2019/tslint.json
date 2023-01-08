@@ -1,0 +1,16 @@
+{
+  "extends": "tslint-config-prettier",
+  "rules": {
+    "quotemark": [true, "double", "jsx-double", "avoid-escape"],
+    "semicolon": [true, "never"],
+    "ordered-imports": [true, { "import-sources-order": "any" }],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never",
+        "esSpecCompliant": true
+      }
+    ]
+  }
+}

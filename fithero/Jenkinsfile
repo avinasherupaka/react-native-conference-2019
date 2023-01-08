@@ -1,0 +1,41 @@
+agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Sanity check') {
+            steps {
+                script {
+                    def VERSION = input(
+                        id: 'CreateDeployment', message: 'Please input the version of the release.', parameters: [
+                        [$class: 'TextParameterDefinition', description: 'The version of the deployable', name: 'VERSION'],])
+                        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'UserCreds',
+                        usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                        sh 'npm install @monsantoit/deploytool-cli'
+                        sh 'NODE_ENV=test node_modules/.bin/deploytool add -d "Testing end to end script" -t "ELD-WINTER-19-BLUE" -c "deployment-approvals-cf-aws" -v "'+VERSION+'" --username $USERNAME --password $PASSWORD --purpose "new features" --features "Description of features" --platform "Workforce" --inputTrigger "Input1"'   
+                    }
+                }
+                input( message: "Does the staging environment look ok?", id: "Input1")
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    def TEAM="ELD-WINTER19-BLUE"
+                    def CMDB_APP="deployment-approvals-cf-aws"
+                    sh 'set -x'
+                    sh 'set -e'
+                    sh 'npm install -g @monsantoit/deploytool-cli@latest'
+                    sh 'deploytool deployed -t "$TEAM" -c "$CMDB_APP" --appVersion "$VERSION"'   
+                }
+            }
+        }
+    }

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditSetsWithControls Weight units renders kgs or lbs 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+-             Weight (kgs)
++             Weight (lb)
+@@ --- --- @@
+-               value="90"
++               value="198.42"
+@@ --- --- @@
+-             100
++             220.46
+@@ --- --- @@
+-               kgs
++               lb
+@@ --- --- @@
+-             90
++             198.42
+@@ --- --- @@
+-               kgs
++               lb
+`;

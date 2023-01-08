@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DayRow day row starts on Monday or Saturday 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+-     Monday, March 18
++     Saturday, March 16
+@@ --- --- @@
+-               false,
++               Object {
++                 "opacity": 1,
++               },
+@@ --- --- @@
+-             17
++             16
+@@ --- --- @@
+-             Sun
++             Sat
+@@ --- --- @@
+-               Object {
+-                 "opacity": 1,
+-               },
++               false,
+@@ --- --- @@
+-             18
++             17
+@@ --- --- @@
+-             Mon
++             Sun
+@@ --- --- @@
+-             19
++             18
+@@ --- --- @@
+-             Tue
++             Mon
+@@ --- --- @@
+-             20
++             19
+@@ --- --- @@
+-             Wed
++             Tue
+@@ --- --- @@
+-             21
++             20
+@@ --- --- @@
+-             Thu
++             Wed
+@@ --- --- @@
+-             22
++             21
+@@ --- --- @@
+-             Fri
++             Thu
+@@ --- --- @@
+-             23
++             22
+@@ --- --- @@
+-             Sat
++             Fri
+`;
+
+exports[`DayRow day row starts on Monday or Sunday 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ --- --- @@
+-     Monday, March 18
++     Sunday, March 17
+@@ --- --- @@
+-             17
++             11
+@@ --- --- @@
+-             Sun
++             Mon
+@@ --- --- @@
++               false,
+@@ --- --- @@
+-               Object {
+-                 "opacity": 1,
+-               },
+@@ --- --- @@
+-             18
++             12
+@@ --- --- @@
+-             Mon
++             Tue
+@@ --- --- @@
+-             19
++             13
+@@ --- --- @@
+-             Tue
++             Wed
+@@ --- --- @@
+-             20
++             14
+@@ --- --- @@
+-             Wed
++             Thu
+@@ --- --- @@
+-             21
++             15
+@@ --- --- @@
+-             Thu
++             Fri
+@@ --- --- @@
+-             22
++             16
+@@ --- --- @@
+-             Fri
++             Sat
+@@ --- --- @@
+-               false,
++               Object {
++                 "opacity": 1,
++               },
+@@ --- --- @@
+-             23
++             17
+@@ --- --- @@
+-             Sat
++             Sun
+`;

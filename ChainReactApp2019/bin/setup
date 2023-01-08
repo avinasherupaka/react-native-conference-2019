@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Exit immediately on any failure
+set -e
+set -o pipefail
+
+# Path to the ./bin folder
+BINPATH=`dirname "$0"`
+
+# Check prerequisites
+$BINPATH/check
+
+echo "-----------------------------------------------"
+echo "Welcome aboard! Setting up the Chain React app."
+echo "-----------------------------------------------"
+echo ""
+echo "NOTE: Answer 'Enable Automatically' for all react-native link prompts"
+echo ""
+
+echo "🔨 Installing pods..."
+cd ios && pod repo update && pod install && cd ..
+echo ""
+
+echo "🔨 Running yarn..."
+yarn
+echo ""
+
+echo "🔨 Linking React Native packages..."
+echo ""
+react-native link
+echo ""
+
+echo "Getting .env setup...."
+echo ""
+if [ ! -f .env ]
+then
+  echo "🔨 Creating empty .env file"
+  echo ""
+  touch .env
+  echo "AWS_APPSYNC_API_KEY=foo" >> .env
+  echo ""
+else
+  if grep -q "AWS_APPSYNC_API_KEY=" .env
+  then
+    echo "Your .env is all set!"
+  else
+    echo "Adding dummy api key to .env"
+    echo ""
+    echo "AWS_APPSYNC_API_KEY=foo" >> .env
+  fi
+fi
+
+echo "🚫 NOTE: In order to run the app without error,"
+echo "you will need the the proper AWS API token to put in .env. "
+echo "Please ping @jamon in the #chainreact channel of the"
+echo "Infinite Red community Slack (http://community.infinite.red) and we'll hook you up!"
+echo ""
